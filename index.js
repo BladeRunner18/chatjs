@@ -53,7 +53,7 @@ app.get("/api/wx_openid", async (req, res) => {
 app.get("/api/chat", async (req, res) => {
     const { FromUserName, Content } = req;
 
-    console.log(req)
+    console.log(req);
 
     request({
         method: "POST",
