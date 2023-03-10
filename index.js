@@ -56,12 +56,12 @@ app.post("/api/chat", async (req, res) => {
     const appid = req.headers["x-wx-from-appid"] || "";
     const { ToUserName, FromUserName, MsgType, Content, CreateTime } = req.body;
     console.log("推送接收的账号", ToUserName, "创建时间", CreateTime);
-    res.send(appid, {
-        touser: FromUserName,
-        msgtype: "text",
-        text: {
-            content: "这是回复的消息",
-        },
+    res.send({
+        ToUserName: FromUserName,
+        FromUserName: ToUserName,
+        CreateTime: CreateTime,
+        MsgType: "text",
+        Content:"这是回复的消息"
     })
 });
 
